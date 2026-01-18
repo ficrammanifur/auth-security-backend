@@ -1,7 +1,7 @@
-"""
-Hybrid Authentication Security Lab - Flask Backend
-JWT-based authentication API for educational security lab
-"""
+# """
+# Hybrid Authentication Security Lab - Flask Backend
+# JWT-based authentication API for educational security lab
+# """
 
 from flask import Flask, request, jsonify
 from flask_cors import CORS
