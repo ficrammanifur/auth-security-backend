@@ -4,9 +4,20 @@ Flask-based JWT authentication API for educational security lab. Demonstrates co
 
 ## Overview
 
-This backend provides a simple JWT-based authentication system with 4 endpoints. It's designed to be educational, including intentional security vulnerabilities that are documented and explained.
+This backend provides a simple JWT-based authentication system with 4 endpoints. It's designed as an **educational security lab** with intentional vulnerabilities documented for learning purposes.
 
 **Demo Credentials**: `admin` / `password123` or `user` / `password123`
+
+## Threat Model Summary
+
+This application assumes the following threat landscape:
+
+- **Attacker can access frontend source code** and discover backend URLs
+- **Attacker can intercept requests** if HTTPS is not enforced
+- **Attacker may attempt token theft** via localStorage or network sniffing
+- **Attacker may perform brute-force login attacks** without rate limiting
+
+Security controls are intentionally incomplete for educational demonstration. This is not suitable for production use with real user data.
 
 ## Files
 
@@ -36,7 +47,7 @@ This backend provides a simple JWT-based authentication system with 4 endpoints.
 - Error logging to stderr
 - Debug information in console
 
-🚀 **Production Ready**
+🚀 **Deployment Ready** (Educational Lab)
 - Gunicorn WSGI server
 - Docker containerization
 - Health check endpoint
@@ -206,6 +217,21 @@ Verify if a token is valid (optional endpoint).
   "exp": 1705404645
 }
 ```
+
+## Supported Attack Scenarios (Lab)
+
+This educational lab is designed to support the following common attack demonstrations:
+
+- **JWT Token Forgery** - Create unauthorized tokens with modified claims
+- **Token Replay Attack** - Reuse captured valid tokens to access protected resources
+- **Brute Force Login** - Attempt login without rate limiting protection
+- **CORS Abuse** - Make requests from unauthorized origins
+- **Authorization Header Manipulation** - Modify Bearer token to bypass validation
+- **Plaintext Credential Exposure** - Discover hardcoded passwords in source code
+- **Token Expiration Bypass** - Use expired tokens in localStorage indefinitely
+- **Man-in-the-Middle (MITM)** - Intercept unencrypted HTTP communications
+
+These vulnerabilities are intentionally included for security research and educational purposes.
 
 ## Security Analysis
 
