@@ -4,17 +4,6 @@
     "builder": "dockerfile"
   },
   "deploy": {
-    "numReplicas": 1,
-    "startCommand": ""
-  },
-  "env": {
-    "SECRET_KEY": {
-      "description": "JWT secret key (change in production)",
-      "value": "super-secret-key-change-in-production"
-    },
-    "FLASK_ENV": {
-      "description": "Flask environment",
-      "value": "production"
-    }
+    "numReplicas": 1
   }
 }
