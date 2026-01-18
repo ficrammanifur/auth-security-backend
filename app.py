@@ -319,7 +319,7 @@ if __name__ == '__main__':
     ║   Educational Purpose Only                                ║
     ╚═══════════════════════════════════════════════════════════╝
     """)
-    print(f"[v0] Starting server with SECRET_KEY: {SECRET_KEY[:10]}...")
+    print("[v0] Starting server with SECRET_KEY: [HIDDEN]")
     print(f"[v0] Available endpoints:")
     print(f"[v0]   GET  /health       - Health check")
     print(f"[v0]   POST /login        - Authentication")
