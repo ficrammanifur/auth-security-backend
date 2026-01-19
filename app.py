@@ -291,6 +291,28 @@ def verify():
             'message': 'Internal server error'
         }), 500
 
+# ===== LAB VULNERABLE ENDPOINT (DO NOT USE IN PROD) =====
+@app.route("/lab/store-message", methods=["POST"])
+def store_message():
+    data = request.get_json()
+    message = data.get("message", "")
+    
+    # SIMULASI STORED XSS
+    with open("stored_payload.txt", "w") as f:
+        f.write(message)
+
+    return jsonify({"success": True, "stored": True})
+
+@app.route("/lab/get-message", methods=["GET"])
+def get_message():
+    try:
+        with open("stored_payload.txt") as f:
+            payload = f.read()
+    except:
+        payload = ""
+
+    return jsonify({"message": payload})
+
 
 @app.errorhandler(404)
 def not_found(error):
